@@ -1,6 +1,7 @@
 import axios  from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
+import MusicTable from './Components/MusicTable/MusicTable';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div>
+      <MusicTable songs={songs}/>
       <div onClick={displayArray}>CLICK</div>
     </div>
   );
