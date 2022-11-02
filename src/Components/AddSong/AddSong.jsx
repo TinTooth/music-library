@@ -10,7 +10,7 @@ const AddSong = ({getAllSongs}) => {
     const [artist,setArtist] = useState('');
     const [album,setAlbum] = useState('');
     const [genre,setGenre] = useState('');
-    const [releaseDate,setDate] = useState('YYYY-MM-DD');
+    const [releaseDate,setDate] = useState('');
     const handleShow = () =>setShow(true);
     const handleClose = () =>setShow(false);
 
@@ -55,7 +55,7 @@ const AddSong = ({getAllSongs}) => {
                         </Form.Group>
                         <Form.Group  className = 'mb-3' >
                             <Form.Label> Release Date (YYYY-MM-DD) </Form.Label>
-                            <Form.Control type = 'string' value = {releaseDate} onChange = {(e)=> setDate(e.target.value)}/> 
+                            <Form.Control placeholder='YYYY-MM-DD' type = 'string' value = {releaseDate} onChange = {(e)=> setDate(e.target.value)}/> 
                         </Form.Group>
                     </Form>
                 </Modal.Body>
