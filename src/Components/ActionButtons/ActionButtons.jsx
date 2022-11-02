@@ -14,20 +14,18 @@ const ActionButtons = ({song, refresh, setRefresh, getAllSongs}) => {
         let endpoint = 'http://127.0.0.1:8000/api/music/' + song.id + "/"
         const response = await axios.put(endpoint,updatedSong)
         if (response.status === 200) {
-            setRefresh(refresh+1)
+            getAllSongs()
         } 
     }
 
     const likeSong = () => {song.likes+=1; updateSong(song)}
-
-
 
     return ( 
         
     
         <div>
             <button onClick = {deleteSong}>Delete</button>
-            <UpdateSong updateSong = {updateSong} song = {song}/>
+            <UpdateSong updateSong = {updateSong} song = {song} setRefresh = {setRefresh} refresh = {refresh}/>
             <button onClick = {likeSong}>Like</button>
         </div>
     );

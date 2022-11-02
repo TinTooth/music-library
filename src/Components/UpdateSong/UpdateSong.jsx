@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 
-const UpdateSong = ({updateSong,song}) => {
+const UpdateSong = ({updateSong,song,setRefresh, refresh}) => {
     const [show,setShow] = useState(false);
     const [title,setTitle] = useState(song.title);
     const [artist,setArtist] = useState(song.artist);
@@ -14,12 +14,22 @@ const UpdateSong = ({updateSong,song}) => {
     const handleShow = () =>setShow(true);
     const handleClose = () =>setShow(false);
 
+    useEffect(() => {
+        setTitle(song.title);
+        setArtist(song.artist);
+        setAlbum(song.album);
+        setGenre(song.genre);
+        setDate(song.release_date)
+
+    },[song])
+
     
     
     const handleSubmit = () => {
-        const updatedSong = {title:title,artist:artist,album:album,release_date:releaseDate,genre:genre,likes:0}
+        const updatedSong = {title:title,artist:artist,album:album,release_date:releaseDate,genre:genre,likes:song.likes}
         updateSong(updatedSong)
         handleClose()
+        setRefresh(refresh+1)
     }
 
     return ( 

@@ -4,7 +4,7 @@ import './App.css';
 import MusicTable from './Components/MusicTable/MusicTable';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddSong from './Components/AddSong/AddSong';
-
+import SearchBar from './Components/SearchBar/SearchBar';
 function App() {
 
   const [songs, setSongs] = useState([])
@@ -23,6 +23,7 @@ function App() {
     <div>
       <div>
         <AddSong getAllSongs={getAllSongs} />
+        <SearchBar />
       </div>
       <div>
         <MusicTable songs={songs} setSongs= {setSongs} getAllSongs = {getAllSongs}/>
