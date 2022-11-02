@@ -1,6 +1,17 @@
 import React from "react";
+import ActionButtons from "../ActionButtons/ActionButtons";
 
-const MusicTable = ({songs, filter, filterString}) => {
+const MusicTable = ({songs,setSongs,getAllSongs}) => {
+
+    function filter(field){
+        const filteredSongs = [...songs].sort((a,b)=> (a[field] > b[field]) ? 1 : b[field] > a[field] ? -1 : 0)
+        setSongs(filteredSongs);
+    }
+
+    function filterString(field){
+        const filteredSongs = [...songs].sort((a,b)=> (a[field].toLowerCase() > b[field].toLowerCase()) ? 1 : b[field].toLowerCase() > a[field].toLowerCase() ? -1 : 0)
+        setSongs(filteredSongs);
+    }
 
     const handleSongClick = () => { filter('id')};
     const handleTitleClick = () => { filterString('title')};
@@ -21,6 +32,7 @@ const MusicTable = ({songs, filter, filterString}) => {
                     <th onClick = {handleGenreClick}> Genre</th>
                     <th onClick = {handleReleaseDateClick}> Release Date</th>
                     <th onClick = {handleLikesClick}> Total Likes</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +47,7 @@ const MusicTable = ({songs, filter, filterString}) => {
                             <td>{song.genre}</td>
                             <td>{song.release_date}</td>
                             <td>{song.likes}</td>
+                            <td><ActionButtons song = {song} getAllSongs = {getAllSongs} /></td>
                         </tr>
                     )
                 })}

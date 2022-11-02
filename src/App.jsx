@@ -17,10 +17,7 @@ function App() {
     setSongs(response.data);
   }
 
-  function filter(field){
-    const filteredSongs = [...songs].sort((a,b)=> (a[field] > b[field]) ? 1 : b[field] > a[field] ? -1 : 0)
-    setSongs(filteredSongs);
-  }
+  
   function filterString(field){
     const filteredSongs = [...songs].sort((a,b)=> (a[field].toLowerCase() > b[field].toLowerCase()) ? 1 : b[field].toLowerCase() > a[field].toLowerCase() ? -1 : 0)
     setSongs(filteredSongs);
@@ -28,7 +25,7 @@ function App() {
 
   return (  
     <div>
-      <MusicTable songs={songs} filter = {filter} filterString = {filterString}/>
+      <MusicTable songs={songs} setSongs= {setSongs} getAllSongs = {getAllSongs}/>
     </div>
   );
 }
