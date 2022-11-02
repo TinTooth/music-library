@@ -1,35 +1,30 @@
-import axios from 'axios';
+
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 
-const AddSong = ({getAllSongs}) => {
+const UpdateSong = ({updateSong,song}) => {
     const [show,setShow] = useState(false);
-    const [title,setTitle] = useState('');
-    const [artist,setArtist] = useState('');
-    const [album,setAlbum] = useState('');
-    const [genre,setGenre] = useState('');
-    const [releaseDate,setDate] = useState('');
+    const [title,setTitle] = useState(song.title);
+    const [artist,setArtist] = useState(song.artist);
+    const [album,setAlbum] = useState(song.album);
+    const [genre,setGenre] = useState(song.genre);
+    const [releaseDate,setDate] = useState(song.release_date);
     const handleShow = () =>setShow(true);
     const handleClose = () =>setShow(false);
 
-    async function addSong(song){
-        const response = await axios.post('http://127.0.0.1:8000/api/music/',song)
-        if (response.status = 201){
-            getAllSongs()
-        }
-    }
+    
     
     const handleSubmit = () => {
-        const newSong = {title:title,artist:artist,album:album,release_date:releaseDate,genre:genre,likes:0}
-        addSong(newSong)
+        const updatedSong = {title:title,artist:artist,album:album,release_date:releaseDate,genre:genre,likes:0}
+        updateSong(updatedSong)
         handleClose()
     }
 
     return ( 
         <>
-            <button  onClick = {handleShow}>Add Song</button>
+            <button onClick = {handleShow}>Update</button>
 
             <Modal show = {show} onHide = {handleClose}>
                 <Modal.Header closeButton>
@@ -55,13 +50,13 @@ const AddSong = ({getAllSongs}) => {
                         </Form.Group>
                         <Form.Group  className = 'mb-3' >
                             <Form.Label> Release Date (YYYY-MM-DD) </Form.Label>
-                            <Form.Control placeholder='YYYY-MM-DD' type = 'string' value = {releaseDate} onChange = {(e)=> setDate(e.target.value)}/> 
+                            <Form.Control type = 'string' value = {releaseDate} onChange = {(e)=> setDate(e.target.value)}/> 
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <button varriant = 'secondary' onClick ={handleClose}>Cancel</button>
-                    <button type = 'submit' varriant = 'primary' onClick = {handleSubmit}>Add Song</button>
+                    <button type = 'submit' varriant = 'primary' onClick = {handleSubmit}>Update Song</button>
                 </Modal.Footer>
             </Modal>
         </>
@@ -69,4 +64,4 @@ const AddSong = ({getAllSongs}) => {
      );
 }
  
-export default AddSong;
+export default UpdateSong;

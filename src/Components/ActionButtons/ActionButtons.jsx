@@ -1,6 +1,8 @@
 import axios from "axios";
+import UpdateSong from "../UpdateSong/UpdateSong";
 
-const ActionButtons = ({song, getAllSongs}) => {
+const ActionButtons = ({song, refresh, setRefresh, getAllSongs}) => {
+
     async function deleteSong(){
         let endpoint = 'http://127.0.0.1:8000/api/music/' + song.id + "/"
         const response = await axios.delete(endpoint)
@@ -8,14 +10,15 @@ const ActionButtons = ({song, getAllSongs}) => {
             getAllSongs()
         } 
     }
-    async function likeSong(){
+    async function updateSong(updatedSong){
         let endpoint = 'http://127.0.0.1:8000/api/music/' + song.id + "/"
-        const updatedSong = {title:song.title,artist:song.artist,album:song.album,release_date:song.release_date,genre:song.genre,likes:song.likes+1}
         const response = await axios.put(endpoint,updatedSong)
         if (response.status === 200) {
-            getAllSongs()
+            setRefresh(refresh+1)
         } 
     }
+
+    const likeSong = () => {song.likes+=1; updateSong(song)}
 
 
 
@@ -24,7 +27,7 @@ const ActionButtons = ({song, getAllSongs}) => {
     
         <div>
             <button onClick = {deleteSong}>Delete</button>
-            <button>Update</button>
+            <UpdateSong updateSong = {updateSong} song = {song}/>
             <button onClick = {likeSong}>Like</button>
         </div>
     );

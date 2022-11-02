@@ -1,5 +1,5 @@
 import React from "react";
-import ActionButtons from "../ActionButtons/ActionButtons";
+import TableEntry from "../TableEntry/TableEntry";
 
 const MusicTable = ({songs,setSongs,getAllSongs}) => {
 
@@ -25,7 +25,7 @@ const MusicTable = ({songs,setSongs,getAllSongs}) => {
         <table>
             <thead>
                 <tr>
-                    <th onClick={handleSongClick}> Song Number</th>
+                    
                     <th onClick={handleTitleClick}> Song Title</th>
                     <th onClick ={handleArtistClick}> Artist</th>
                     <th onClick = {handleAblumClick}> Album</th>
@@ -40,14 +40,7 @@ const MusicTable = ({songs,setSongs,getAllSongs}) => {
                 {songs.map((song,i) => {
                     return(
                         <tr key = {i}>
-                            <td>{song.id}</td>
-                            <td>{song.title}</td>
-                            <td>{song.artist}</td>
-                            <td>{song.album}</td>
-                            <td>{song.genre}</td>
-                            <td>{song.release_date}</td>
-                            <td>{song.likes}</td>
-                            <td><ActionButtons song = {song} getAllSongs = {getAllSongs} /></td>
+                          <TableEntry song = {song} getAllSongs = {getAllSongs} songs = {songs} /> 
                         </tr>
                     )
                 })}
