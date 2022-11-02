@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import MusicTable from './Components/MusicTable/MusicTable';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AddSong from './Components/AddSong/AddSong';
 
 function App() {
 
@@ -17,15 +18,15 @@ function App() {
     setSongs(response.data);
   }
 
-  
-  function filterString(field){
-    const filteredSongs = [...songs].sort((a,b)=> (a[field].toLowerCase() > b[field].toLowerCase()) ? 1 : b[field].toLowerCase() > a[field].toLowerCase() ? -1 : 0)
-    setSongs(filteredSongs);
-  }
 
-  return (  
+  return (
     <div>
-      <MusicTable songs={songs} setSongs= {setSongs} getAllSongs = {getAllSongs}/>
+      <div>
+        <AddSong getAllSongs={getAllSongs} />
+      </div>
+      <div>
+        <MusicTable songs={songs} setSongs= {setSongs} getAllSongs = {getAllSongs}/>
+      </div>
     </div>
   );
 }
