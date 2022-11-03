@@ -1,9 +1,4 @@
 import ActionButtons from "../ActionButtons/ActionButtons";
-import React, { useEffect, useState } from 'react';
-
-
-
-
 
 const TableEntry = ({song,songs,setSongs, i}) => {
     

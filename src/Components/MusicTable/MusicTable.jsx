@@ -1,5 +1,6 @@
 import React from "react";
 import TableEntry from "../TableEntry/TableEntry";
+import AddSong from "../AddSong/AddSong";
 
 const MusicTable = ({songs,setSongs,getAllSongs}) => {
 
@@ -31,7 +32,7 @@ const MusicTable = ({songs,setSongs,getAllSongs}) => {
                     <th onClick = {handleGenreClick}> Genre</th>
                     <th onClick = {handleReleaseDateClick}> Release Date</th>
                     <th onClick = {handleLikesClick}> Total Likes</th>
-                    <th></th>
+                    <th> <AddSong getAllSongs={getAllSongs} /> </th>
                 </tr>
             </thead>
             <tbody>

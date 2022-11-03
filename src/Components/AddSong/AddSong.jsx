@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 
@@ -16,7 +15,7 @@ const AddSong = ({getAllSongs}) => {
 
     async function addSong(song){
         const response = await axios.post('http://127.0.0.1:8000/api/music/',song)
-        if (response.status = 201){
+        if (response.status === 201){
             await getAllSongs()
         }
     }
