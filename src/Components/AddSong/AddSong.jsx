@@ -17,7 +17,7 @@ const AddSong = ({getAllSongs}) => {
     async function addSong(song){
         const response = await axios.post('http://127.0.0.1:8000/api/music/',song)
         if (response.status = 201){
-            getAllSongs()
+            await getAllSongs()
         }
     }
     
@@ -54,8 +54,8 @@ const AddSong = ({getAllSongs}) => {
                             <Form.Control type = 'string' value = {genre} onChange = {(e)=> setGenre(e.target.value)}/> 
                         </Form.Group>
                         <Form.Group  className = 'mb-3' >
-                            <Form.Label> Release Date (YYYY-MM-DD) </Form.Label>
-                            <Form.Control placeholder='YYYY-MM-DD' type = 'string' value = {releaseDate} onChange = {(e)=> setDate(e.target.value)}/> 
+                            <Form.Label>Release Date</Form.Label>
+                            <Form.Control  type = 'date' value = {releaseDate} onChange = {(e)=> setDate(e.target.value)}/> 
                         </Form.Group>
                     </Form>
                 </Modal.Body>

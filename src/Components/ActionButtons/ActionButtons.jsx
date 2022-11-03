@@ -7,14 +7,14 @@ const ActionButtons = ({song, refresh, setRefresh, getAllSongs}) => {
         let endpoint = 'http://127.0.0.1:8000/api/music/' + song.id + "/"
         const response = await axios.delete(endpoint)
         if (response.status === 204) {
-            getAllSongs()
+            await getAllSongs()
         } 
     }
     async function updateSong(updatedSong){
         let endpoint = 'http://127.0.0.1:8000/api/music/' + song.id + "/"
         const response = await axios.put(endpoint,updatedSong)
         if (response.status === 200) {
-            getAllSongs()
+            await getAllSongs()
         } 
     }
 

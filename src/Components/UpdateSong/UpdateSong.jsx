@@ -59,8 +59,8 @@ const UpdateSong = ({updateSong,song,setRefresh, refresh}) => {
                             <Form.Control type = 'string' value = {genre} onChange = {(e)=> setGenre(e.target.value)}/> 
                         </Form.Group>
                         <Form.Group  className = 'mb-3' >
-                            <Form.Label> Release Date (YYYY-MM-DD) </Form.Label>
-                            <Form.Control type = 'string' value = {releaseDate} onChange = {(e)=> setDate(e.target.value)}/> 
+                            <Form.Label> Release Date</Form.Label>
+                            <Form.Control type = 'date' value = {releaseDate} onChange = {(e)=> setDate(e.target.value)}/> 
                         </Form.Group>
                     </Form>
                 </Modal.Body>
