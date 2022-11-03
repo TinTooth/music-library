@@ -2,6 +2,7 @@ import axios  from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
 import MusicTable from './Components/MusicTable/MusicTable';
+import 'react-popper'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddSong from './Components/AddSong/AddSong';
 import SearchBar from './Components/SearchBar/SearchBar';
@@ -22,11 +23,11 @@ function App() {
   return (
     <div>
       <div>
-        <AddSong getAllSongs={getAllSongs} />
-        <SearchBar />
+        <MusicTable songs={songs} setSongs= {setSongs} getAllSongs = {getAllSongs}/>
       </div>
       <div>
-        <MusicTable songs={songs} setSongs= {setSongs} getAllSongs = {getAllSongs}/>
+        <AddSong getAllSongs={getAllSongs} />
+        <SearchBar songs = {songs} setSongs ={setSongs}/>
       </div>
     </div>
   );

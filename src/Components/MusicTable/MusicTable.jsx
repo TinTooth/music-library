@@ -13,7 +13,6 @@ const MusicTable = ({songs,setSongs,getAllSongs}) => {
         setSongs(filteredSongs);
     }
 
-    const handleSongClick = () => { sort('id')};
     const handleTitleClick = () => { sortString('title')};
     const handleArtistClick = () => { sortString('artist')};
     const handleAblumClick = () => { sortString('album')};
@@ -40,7 +39,7 @@ const MusicTable = ({songs,setSongs,getAllSongs}) => {
                 {songs.map((song,i) => {
                     return(
                         <tr key = {i}>
-                          <TableEntry song = {song} getAllSongs = {getAllSongs} songs = {songs} /> 
+                          <TableEntry song = {song} setSongs = {setSongs} songs = {songs} i = {i}/> 
                         </tr>
                     )
                 })}

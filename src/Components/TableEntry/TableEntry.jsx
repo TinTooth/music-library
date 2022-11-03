@@ -1,11 +1,12 @@
 import ActionButtons from "../ActionButtons/ActionButtons";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 
-const TableEntry = ({song,songs,getAllSongs}) => {
+
+
+const TableEntry = ({song,songs,setSongs, i}) => {
     
-    const [refresh,setRefresh] = useState(0);
 
     return (
         <>
@@ -15,7 +16,7 @@ const TableEntry = ({song,songs,getAllSongs}) => {
         <td>{song.genre}</td>
         <td>{song.release_date}</td>
         <td>{song.likes}</td>
-        <td><ActionButtons song = {song} setRefresh = {setRefresh} refresh = {refresh} getAllSongs = {getAllSongs}/></td>
+        <td><ActionButtons song = {song} setSongs = {setSongs} songs = {songs} i = {i} /></td>
         </>
     );
 }
