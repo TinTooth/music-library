@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 
-const UpdateSong = ({updateSong, song, songs, setSongs}) => {
+const UpdateSong = ({updateSong, song}) => {
     const [show,setShow] = useState(false);
     const [title,setTitle] = useState(song.title);
     const [artist,setArtist] = useState(song.artist);
@@ -31,11 +31,11 @@ const UpdateSong = ({updateSong, song, songs, setSongs}) => {
 
     return ( 
         <>
-            <button onClick = {handleShow}>Update</button>
+            <button className = "btn btn-secondary shadow" onClick = {handleShow}>Update</button>
 
             <Modal show = {show} onHide = {handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Enter Song Information</Modal.Title>
+                <Modal.Header className = 'white bp'closeButton>
+                    <Modal.Title>Update Song Information</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form className = 'm-3'>
@@ -62,8 +62,8 @@ const UpdateSong = ({updateSong, song, songs, setSongs}) => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <button varriant = 'secondary' onClick ={handleClose}>Cancel</button>
-                    <button type = 'submit' varriant = 'primary' onClick = {handleSubmit}>Update Song</button>
+                    <button className = 'btn btn-secondary' onClick ={handleClose}>Cancel</button>
+                    <button type = 'submit' className = 'btn btn-warning' onClick = {handleSubmit}>Update Song</button>
                 </Modal.Footer>
             </Modal>
         </>

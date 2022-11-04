@@ -2,7 +2,6 @@ import axios  from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
 import MusicTable from './Components/MusicTable/MusicTable';
-import "react-widgets/styles.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBar from './Components/SearchBar/SearchBar';
 function App() {
@@ -20,12 +19,15 @@ function App() {
 
 
   return (
-    <div>
-      <div>
-        <SearchBar songs = {songs} setSongs ={setSongs} getAllSongs = {getAllSongs}/>
-      </div>
-      <div>
-        <MusicTable songs={songs} setSongs= {setSongs} getAllSongs = {getAllSongs}/>
+    <div className='bg'>
+      <nav className='bp shadow-lg'>Music Managed</nav>
+      <div className = "container">
+        <div className='row sticky'>
+          <SearchBar songs = {songs} setSongs ={setSongs} getAllSongs = {getAllSongs}/>
+        </div>
+        <div className='row'>
+          <MusicTable songs={songs} setSongs= {setSongs} getAllSongs = {getAllSongs}/>
+        </div>
       </div>
     </div>
   );

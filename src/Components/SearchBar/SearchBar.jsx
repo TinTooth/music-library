@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Form } from 'react-bootstrap';
-import DropdownList from "react-widgets/DropdownList";
+import DropdownField from '../DropdownField/DropdownField';
 
 const SearchBar = ({songs, setSongs, getAllSongs}) => {
     const [search,setSearch] = useState('');
@@ -58,25 +58,16 @@ const SearchBar = ({songs, setSongs, getAllSongs}) => {
 
 
     return ( 
-
-        <div>
-            <Form onSubmit = {handleSubmit}>
-                <Form.Group>
+        <div className = 'col-lg-12 d-flex flex-row justify-content-center bp p-3 rounded'>
+            <Form className = 'd-flex flex-row'onSubmit = {handleSubmit}>
+                <Form.Group className='margin-right'>
                     <Form.Control  placeholder = 'Search Here' type = 'string' value = {search} onChange = {(e)=> setSearch(e.target.value)}/>
                 </Form.Group>
-                <button type = 'sumbit'>Search</button>
-                <button onClick = {getAllSongs}>New Search</button>
+                <button className = "btn btn-secondary" type = 'sumbit'>Search</button>
+                <DropdownField field = {field} setField = {setField} />
+                <button className = "btn btn-secondary" onClick = {getAllSongs}>New Search</button>
             </Form>
-            <div>
-            <div>Search Category</div>
-            <DropdownList
-                value = {field}
-                data={["All", "Title", "Artist", "Album",'Genre']}
-                onChange = {field => setField(field)}
-            />
-            </div>
-        </div>
-
+        </div> 
      );
 }
  

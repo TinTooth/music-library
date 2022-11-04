@@ -28,11 +28,11 @@ const AddSong = ({getAllSongs}) => {
 
     return ( 
         <>
-            <button  onClick = {handleShow}>Add Song</button>
+            <button className = "btn btn-dark shadow" onClick = {handleShow}>Add Song</button>
 
             <Modal show = {show} onHide = {handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Enter Song Information</Modal.Title>
+                <Modal.Header className = 'bp' closeButton>
+                    <Modal.Title className='white'>Enter Song Information</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form className = 'm-3'>
@@ -59,8 +59,8 @@ const AddSong = ({getAllSongs}) => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <button varriant = 'secondary' onClick ={handleClose}>Cancel</button>
-                    <button type = 'submit' varriant = 'primary' onClick = {handleSubmit}>Add Song</button>
+                    <button className = 'btn btn-secondary' onClick ={handleClose}>Cancel</button>
+                    <button type = 'submit' className = 'btn btn-warning' onClick = {handleSubmit}>Add Song</button>
                 </Modal.Footer>
             </Modal>
         </>

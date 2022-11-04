@@ -1,6 +1,7 @@
 import React from "react";
 import TableEntry from "../TableEntry/TableEntry";
 import AddSong from "../AddSong/AddSong";
+import "./MusicTable.css";
 
 const MusicTable = ({songs,setSongs,getAllSongs}) => {
 
@@ -22,21 +23,19 @@ const MusicTable = ({songs,setSongs,getAllSongs}) => {
     const handleLikesClick = () => { sort('likes')};
 
     return (  
-        <table>
+        <table className="text-center table shadow-lg">
             <thead>
-                <tr>
-                    
-                    <th onClick={handleTitleClick}> Song Title</th>
-                    <th onClick ={handleArtistClick}> Artist</th>
-                    <th onClick = {handleAblumClick}> Album</th>
-                    <th onClick = {handleGenreClick}> Genre</th>
-                    <th onClick = {handleReleaseDateClick}> Release Date</th>
-                    <th onClick = {handleLikesClick}> Total Likes</th>
+                <tr className="sticky">
+                    <th className = 'field' onClick={handleTitleClick}> Song Title</th>
+                    <th className = 'field' onClick ={handleArtistClick}> Artist</th>
+                    <th className = 'field' onClick = {handleAblumClick}> Album</th>
+                    <th className = 'field' onClick = {handleGenreClick}> Genre</th>
+                    <th className = 'field' onClick = {handleReleaseDateClick}> Release Date</th>
+                    <th className = 'field' onClick = {handleLikesClick}> Total Likes</th>
                     <th> <AddSong getAllSongs={getAllSongs} /> </th>
                 </tr>
             </thead>
             <tbody>
-    
                 {songs.map((song,i) => {
                     return(
                         <tr key = {i}>

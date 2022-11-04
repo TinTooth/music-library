@@ -1,0 +1,21 @@
+tr{
+    background-color: rgb(250, 247, 241);
+}
+thead tr{
+    background-color: rgb(174, 168, 159);
+}
+
+
+.field {
+    
+}
+
+th.field:hover {
+    background-color: rgb(95, 94, 94);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.sticky{
+    position: relative;
+}
