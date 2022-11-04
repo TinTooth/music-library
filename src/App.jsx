@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className='bg'>
-      <nav className='bp shadow-lg'>Music Managed</nav>
+      <nav className='bp shadow-lg '>Music Managed</nav>
       <div className = "container">
         <div className='row'>
           <SearchBar songs = {songs} setSongs ={setSongs} getAllSongs = {getAllSongs}/>
