@@ -25,7 +25,7 @@ const MusicTable = ({songs,setSongs,getAllSongs}) => {
     return (  
         <table className="text-center table shadow-lg">
             <thead>
-                <tr className="sticky">
+                <tr>
                     <th className = 'field' onClick={handleTitleClick}> Song Title</th>
                     <th className = 'field' onClick ={handleArtistClick}> Artist</th>
                     <th className = 'field' onClick = {handleAblumClick}> Album</th>

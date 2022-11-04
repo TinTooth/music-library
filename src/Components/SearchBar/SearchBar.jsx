@@ -29,7 +29,7 @@ const SearchBar = ({songs, setSongs, getAllSongs}) => {
     }
 
     const searchGenre = () => {
-        let results = songs.filter((song) => {return song.Genre.toLowerCase().includes(search.toLowerCase())});
+        let results = songs.filter((song) => {return song.genre.toLowerCase().includes(search.toLowerCase())});
         setSongs(results);
     }
     const searchAlbum = () => {
@@ -58,7 +58,7 @@ const SearchBar = ({songs, setSongs, getAllSongs}) => {
 
 
     return ( 
-        <div className = 'col-lg-12 d-flex flex-row justify-content-center bp p-3 rounded'>
+        <div className = 'd-flex flex-row justify-content-center bp p-3 rounded-top'>
             <Form className = 'd-flex flex-row'onSubmit = {handleSubmit}>
                 <Form.Group className='margin-right'>
                     <Form.Control  placeholder = 'Search Here' type = 'string' value = {search} onChange = {(e)=> setSearch(e.target.value)}/>

@@ -22,7 +22,7 @@ function App() {
     <div className='bg'>
       <nav className='bp shadow-lg'>Music Managed</nav>
       <div className = "container">
-        <div className='row sticky'>
+        <div className='row'>
           <SearchBar songs = {songs} setSongs ={setSongs} getAllSongs = {getAllSongs}/>
         </div>
         <div className='row'>

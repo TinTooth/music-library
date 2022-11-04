@@ -7,15 +7,11 @@ thead tr{
 
 
 .field {
-    
+    margin:auto;
 }
 
 th.field:hover {
     background-color: rgb(95, 94, 94);
     color: aliceblue;
     cursor: pointer;
-}
-
-.sticky{
-    position: relative;
 }

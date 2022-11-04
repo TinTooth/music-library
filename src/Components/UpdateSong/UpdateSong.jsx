@@ -31,7 +31,7 @@ const UpdateSong = ({updateSong, song}) => {
 
     return ( 
         <>
-            <button className = "btn btn-secondary shadow" onClick = {handleShow}>Update</button>
+            <button className = "btn btn-dark shadow" onClick = {handleShow}>Update</button>
 
             <Modal show = {show} onHide = {handleClose}>
                 <Modal.Header className = 'white bp'closeButton>

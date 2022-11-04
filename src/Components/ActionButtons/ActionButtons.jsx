@@ -25,15 +25,14 @@ const ActionButtons = ({song, setSongs, songs, i}) => {
         } 
     }
 
-    const likeSong = () => {song.likes+=1; updateSong(song)}
+    const likeSong = () => {song.likes+=1; updateSong(song)} 
+    // thought about how to make it so you can only like once, but really it would need to be connected to a user.
 
     return ( 
         <div>
             <UpdateSong updateSong = {updateSong} song = {song}/>
             <button className = "btn btn-secondary shadow" onClick = {likeSong}>Like</button>
             <DeleteSong deleteSong = {deleteSong} song = {song}/>
-
-            
         </div>
     );
 }
